@@ -52,7 +52,10 @@ func _ready():
 	
 	origin = get_node(xr_origin)
 
-	camera = origin.get_node("XRCamera3D")
+	for i in origin.get_children():
+		if i is XRCamera3D:
+			camera = i
+			break
 	
 	var left_hand = XRServer.get_tracker("left_hand")
 	if left_hand == null:
