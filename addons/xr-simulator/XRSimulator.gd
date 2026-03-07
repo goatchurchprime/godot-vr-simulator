@@ -14,8 +14,8 @@ enum ControllerSelectionMode {Hold, Toggle}
 var camera: XRCamera3D
 var left_controller: XRController3D
 var right_controller: XRController3D
-var left_tracker: XRPositionalTracker
-var right_tracker: XRPositionalTracker
+var left_tracker: XRControllerTracker
+var right_tracker: XRControllerTracker
 
 var toggle_left_controller = false
 var toggle_right_controller = false
@@ -69,7 +69,7 @@ func _ready():
 	
 	var left_hand = XRServer.get_tracker("left_hand")
 	if left_hand == null:
-		left_tracker = XRPositionalTracker.new()
+		left_tracker = XRControllerTracker.new()
 		left_tracker.type = XRServer.TRACKER_CONTROLLER
 		left_tracker.hand = XRPositionalTracker.TRACKER_HAND_LEFT
 		left_tracker.name = "left_hand"
@@ -78,7 +78,7 @@ func _ready():
 	
 	var right_hand = XRServer.get_tracker("right_hand")
 	if right_hand == null:
-		right_tracker = XRPositionalTracker.new()
+		right_tracker = XRControllerTracker.new()
 		right_tracker.type = XRServer.TRACKER_CONTROLLER
 		right_tracker.hand = XRPositionalTracker.TRACKER_HAND_RIGHT
 		right_tracker.name = "right_hand"
